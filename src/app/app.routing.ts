@@ -1,26 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-//Declare config routing
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
-  },
-  { path: '', loadChildren: 'dashboard/dashboard.module#DashboardModule' },
-  { path: 'main', loadChildren: 'main/main.module#LazyModule' }
+
+const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+  { path: 'main', loadChildren: './main/main.module#LazyModule' }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes,{ useHash: true }),
-    RouterModule.forChild(appRoutes),
-  ],
-  exports: [
-    RouterModule
-  ]
-})
-export class AppRouting {
+export const AppRouting: ModuleWithProviders = RouterModule.forRoot(routes);
 
-}

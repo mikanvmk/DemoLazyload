@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import {MainRouting} from "./main.routing";
 
-import {MainComponent} from "./main.component";
-
-
 @NgModule({
   imports: [MainRouting],
-  declarations: [MainComponent]
+  declarations: []
 })
 export class MainModule {}
