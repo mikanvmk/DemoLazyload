@@ -5,7 +5,7 @@ import {Home} from "./home/home";
 import {Constant} from "../common/constant";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/' + Constant.path_home, pathMatch: 'full'},
+  {path: '', redirectTo: Constant.path_home, pathMatch: 'full'},
   {path: Constant.path_home, component: Home}
 ];
 

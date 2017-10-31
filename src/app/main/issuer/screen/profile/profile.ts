@@ -2,11 +2,11 @@ import {Component} from "@angular/core";
 import {Constant} from "../../../../common/constant";
 
 @Component({
-  selector : "account",
-  templateUrl:"./account.html"
+  selector : "profile",
+  templateUrl:"./profile.html"
 })
 
-export class IssuerAccount {
+export class IssuerProfile {
 
   public Constant = Constant;
 

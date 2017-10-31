@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import {IssuerRouting} from "./issuer.routing";
 import {IssuerComponent} from "./issuer.component";
-import {IssuerAccount} from "./screen/account/account";
+import {IssuerProfile} from "./screen/profile/profile";
 
 @NgModule({
   imports: [IssuerRouting],
-  declarations: [IssuerComponent,IssuerAccount]
+  declarations: [IssuerComponent,IssuerProfile]
 })
 export class IssuerModule {}

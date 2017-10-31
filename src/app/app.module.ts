@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 
 import {AppRouting} from "./app.routing";
 import { AppComponent } from './app.component';
+import {NavigationStart, Router} from "@angular/router";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRouting
@@ -13,4 +16,12 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private router: Router){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        console.log(event.url);
+      }
+    })
+  }
+}

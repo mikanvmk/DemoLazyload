@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import {InvestorRouting} from "./investor.routing";
-import {InvestorAccount} from "./screen/account/account";
 import {InvestorComponent} from "./investor.component";
+import {InvestorProfile} from "./screen/account/profile";
 
 @NgModule({
   imports: [InvestorRouting],
-  declarations: [InvestorComponent,InvestorAccount]
+  declarations: [InvestorComponent,InvestorProfile]
 })
 export class InvestorModule {}
