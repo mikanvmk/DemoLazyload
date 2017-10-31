@@ -1,11 +1,12 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {Constant} from "../common/constant";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'issuer', loadChildren: './issuer/issuer.module#IssuerModule' },
-  { path: 'investor', loadChildren: 'investor/investor.module#InvestorModule' }
+  { path: '', redirectTo: Constant.code_issuer, pathMatch: 'full' },
+  { path: Constant.code_issuer, loadChildren: Constant.url_module_main_issuer },
+  { path: Constant.code_investor, loadChildren: Constant.url_module_main_investor }
 ];
 
-export const MainRouting: ModuleWithProviders = RouterModule.forRoot(routes);
+export const MainRouting: ModuleWithProviders = RouterModule.forChild(routes);

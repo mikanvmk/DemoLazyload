@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {Constant} from "../../../../common/constant";
 
 @Component({
   selector : "account",
@@ -7,4 +8,9 @@ import {Component} from "@angular/core";
 
 export class IssuerAccount {
 
+  public Constant = Constant;
+
+  constructor() {
+
+  }
 }
