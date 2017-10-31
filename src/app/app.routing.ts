@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: Constant.path_home, pathMatch: 'full' },
   { path: Constant.path_account, loadChildren: Constant.url_module_main },
   { path: Constant.path_auth, loadChildren: Constant.url_module_auth},
+  { path: Constant.path_active, loadChildren: Constant.url_module_active_mail},
   { path: '', loadChildren: Constant.url_module_dashboard }
 ];
 
