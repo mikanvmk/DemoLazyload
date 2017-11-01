@@ -1,2 +1,12 @@
-App
+<!--Loading-->
+<div class="modal fade" id="loading" bsModal #loadingModal="bs-modal" [config]="{backdrop: 'static'}" role="dialog"
+     aria-labelledby="addBank" aria-hidden="true">
+  <div class="modal-dialog modal-sm" style="text-align: center">
+    <!-- Modal content-->
+    <img src="{{Constant.icon_url_loading}}">
+  </div>
+</div>
+app
 <router-outlet></router-outlet>
+<confirm-dialog-modal></confirm-dialog-modal>
+<popup-error></popup-error>

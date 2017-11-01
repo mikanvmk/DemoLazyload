@@ -1,3 +1,5 @@
 home
-<a routerLink="{{Constant.url_issuer_profile}}">go to account</a>
+<a routerLink="{{Constant.url_issuer_profile}}">{{'error.disconnect' | translate}}</a>
 <a routerLink="{{Constant.url_register_investor}}">go to register</a>
+<util-language [reload]="false"></util-language>
+<button (click)="showError()">Click</button>

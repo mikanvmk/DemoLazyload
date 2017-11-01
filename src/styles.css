@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/bootstrap.min.css');
+@import url('https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/font-awesome.min.css');
+@import url('https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/css/formValidation.min.css');
+@import url('https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/js/intlTelInput/intlTelInput.css');
+@import url('https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/custom-select/bootstrap-select.min.css');
+@font-face {
+  font-family: myfont;
+  src: url("https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/fonts/PRODUCT_SANS_REGULAR.eot") /* EOT file for IE */
+}
+@font-face {
+  font-family: myfont;
+  src: url("https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/fonts/PRODUCT_SANS_REGULAR.ttf") /* TTF file for CSS3 browsers */
+}
+@font-face {
+  font-family: myfont_bold;
+  src: url("https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/fonts/PRODUCT_SANS_SEMIBOLD.ttf") /* EOT file for IE */
+}
+body {overflow-x: hidden;font-family: myfont; font-size: 13px; color: #707070; line-height: 1.4; overflow-x: hidden;}
