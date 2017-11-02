@@ -2,7 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {Constant} from "./common/constant";
 import {ModalDirective} from "ngx-bootstrap";
 import {TranslateService} from "@ngx-translate/core";
-import {HttpService} from "./common/service/http.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +13,7 @@ export class AppComponent {
   public Constant = Constant;
   @ViewChild('loadingModal') loadingModal : ModalDirective;
 
-  constructor(private translate:TranslateService,private http:HttpService) {
+  constructor(private translate:TranslateService) {
     // Add list language
     translate.addLangs(['en_US', 'vi_VN']);
 
@@ -25,28 +24,10 @@ export class AppComponent {
     const lang = localStorage.getItem(Constant.key_local_language);
     if (!lang || lang === 'null') {
       translate.use(Constant.default_language);
-      this.getJSONTranslateAPI(Constant.default_language);
       localStorage.setItem(Constant.key_local_language, Constant.default_language);
     } else {
-      this.getJSONTranslateAPI(lang);
       translate.use(lang)
     }
-  }
-
-  getJSONTranslateAPI(lang) {
-    this.http.get(Constant.api_common_translations + lang)
-      .subscribe((res:any)=>{
-        Object.keys(res).map(key=>{
-          let item = res[key];
-          Object.keys(item).map(child=>{
-            if (item[child]) {
-              this.translate.set(child,item[child])
-            }
-          })
-        })
-      },error=>{
-        console.log(error)
-      })
   }
 
   public showLoading() {

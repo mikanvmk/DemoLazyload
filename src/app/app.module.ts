@@ -19,6 +19,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {FileSaverModule} from "ngx-filesaver";
 import {Constant} from "./common/constant";
+import {AuthService} from "./authorization/auth.service";
+import {ReCaptchaService} from "angular2-recaptcha/lib/captcha.service";
 
 // Create folder load file json language
 export function createTranslateLoader(http: HttpClient) {
@@ -57,7 +59,9 @@ export function createTranslateLoader(http: HttpClient) {
     DataService,
     UserService,
     DialogService,
-    HttpService
+    HttpService,
+    AuthService,
+    ReCaptchaService
   ],
   bootstrap: [AppComponent]
 })

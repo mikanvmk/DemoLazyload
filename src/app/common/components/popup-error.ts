@@ -28,7 +28,7 @@ declare let $: any;
             <div class="row">
               <div class="col-xs-12 info-account">
                 <div class="col-xs-12 col-md-12 message">
-                  <h4>{{content}}</h4>
+                  <h4>{{dialog.dialogMessage}}</h4>
                 </div>
               </div>
             </div>
@@ -53,20 +53,18 @@ export class PopupError {
 
   public Constant = Constant;
 
-  content = null;
-
-  constructor(private dialog:DialogService) {
+  constructor(public dialog:DialogService) {
 
   }
 
   closeError() {
     $('#errorModal').modal('toggle');
-    this.content = null;
-    console.log("click")
+    this.dialog.dialogMessage = null;
   }
 
   submitErrorModal() {
     $('#errorModal').modal('toggle');
+    this.dialog.dialogMessage = null;
   }
 
 

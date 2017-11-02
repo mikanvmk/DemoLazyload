@@ -13,7 +13,7 @@ declare let $: any;
 @Component({
   selector: 'util-language',
   template: `
-    <select id="language"
+    <select id="language" class="language"
             [(ngModel)]="currentLang" name="currentLang" (change)="selectLang(currentLang)">
       <option *ngFor="let item of dataService.listLanguage" [value]="item.code"
               [selected]="currentLang === item.code"
@@ -38,23 +38,30 @@ export class LanguageUtilComponent implements AfterViewInit {
               private translate: TranslateService,
               public dataService: DataService) {
     this.loading.showLoading();
-    this.dataService.getListLanguage(this.http)
-      .then((error: any) => {
-        if (!error) {
-          if (this.dataService.currentLang) {
-            setTimeout(() => {
-              $('#language').selectpicker('val', this.dataService.currentLang);
-            }, 0)
+    if (!this.dataService.listLanguage) {
+      this.dataService.getListLanguage(this.http)
+        .then((error: any) => {
+          if (!error) {
+            this.init();
+          } else {
+            this.dialog.showError(error.message)
           }
+          this.loading.hideLoading();
+        });
+    }else this.init()
+  }
 
-          setTimeout(() => {
-            $('#language').selectpicker(Constant.const_refresh_select);
-          }, 0)
-        } else {
-          this.dialog.showError(error.message)
-        }
-        this.loading.hideLoading();
-      });
+  init() {
+    if (this.dataService.currentLang) {
+      setTimeout(() => {
+        $('#language').selectpicker('val', this.dataService.currentLang);
+      }, 0)
+    }
+
+    setTimeout(() => {
+      $('#language').selectpicker(Constant.const_refresh_select);
+    }, 0);
+    this.loading.hideLoading()
   }
 
   /**

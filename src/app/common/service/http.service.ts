@@ -30,7 +30,7 @@ export class HttpService {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept-Language', language);
-    headers.append('Finanma', "requestId=" + Date.now());
+    headers.append(Constant.header_config_code, "requestId=" + Date.now());
     const requestOptions = new RequestOptions({
       method: 'GET',
       url: Constant.url_host + url,
@@ -86,7 +86,7 @@ export class HttpService {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept-Language', language);
-    headers.append('Finandesk', "requestId=" + Date.now());
+    headers.append(Constant.header_config_code, "requestId=" + Date.now());
     const requestOptions = new RequestOptions({
       method: 'GET',
       url: Constant.url_host + url,
@@ -141,7 +141,7 @@ export class HttpService {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept-Language', language);
-    headers.append('Finandesk', "requestId=" + Date.now());
+    headers.append(Constant.header_config_code, "requestId=" + Date.now());
     const requestoptions = new RequestOptions({
       method: 'POST',
       url: Constant.url_host + url,
@@ -200,7 +200,7 @@ export class HttpService {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept-Language', language);
-    headers.append('Finandesk', "requestId=" + Date.now());
+    headers.append(Constant.header_config_code, "requestId=" + Date.now());
     const requestoptions = new RequestOptions({
       method: RequestMethod.Delete,
       url: Constant.url_host + url + data,
@@ -269,13 +269,15 @@ export class HttpService {
 
   goToLogin() {
     //Remove token when logout success
-    let version = localStorage.getItem(Constant.key_local_version);
-    sessionStorage.clear();
-    localStorage.clear();
     this.dataService.token = null;
     this.user.userType = null;
-    localStorage.setItem(Constant.key_local_language,this.dataService.currentLang);
-    localStorage.setItem(Constant.key_local_version,version);
+   setTimeout(()=>{
+     let version = localStorage.getItem(Constant.key_local_version);
+     sessionStorage.clear();
+     localStorage.clear();
+     localStorage.setItem(Constant.key_local_language,this.dataService.currentLang);
+     localStorage.setItem(Constant.key_local_version,version);
+   },Constant.const_timeout_default);
 
     //Go to screen login
     this.router.navigate([Constant.url_login]);

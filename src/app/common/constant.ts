@@ -1,12 +1,22 @@
 import {environment} from "../../environments/environment";
 
 export class Constant {
+
+  //Header config
+  public static header_config_code = "Finanma";
   //URL
   public static url_host = "https://" + environment.urlBackEnd;
 
   //user code
   public static code_investor = "investor";
+  public static CODE_INVESTOR = "INVESTOR";
   public static code_issuer = "issuer";
+  public static CODE_ISSUER = "ISSUER";
+
+  //user status code
+  public static status_first_login = "USER_FIRST_LOGIN";
+  public static status_user_pending = "USER_PENDING";
+  public static status_user_active = "USER_ACTIVE";
 
   //path
   public static path_home = "home";
@@ -32,6 +42,9 @@ export class Constant {
   public static url_module_active_mail = "./active-mail/active-mail.module#ActiveMailModule";
 
   //URL screen
+  //Dashboard
+  public static url_home = "/" + Constant.path_home;
+
   public static url_reset_pass =  "/" + Constant.path_active + "/" + Constant.path_active_reset_pass;
   public static url_active_mail_success =  "/" + Constant.path_active + "/" + Constant.path_active_success;
   public static url_active_mail_fail =  "/" + Constant.path_active + "/" + Constant.path_active_fail;
@@ -94,11 +107,14 @@ export class Constant {
   public static api_common_banks = "/res/banks";
 
   //Const url icon
-  public static icon_url_loading = "./assets/images/icon/loading.svg";
-  public static icon_url_close = "./assets/images/icon/close.png";
+  public static icon_host = "./assets/images/icon/";
+  public static icon_url_loading = Constant.icon_host + "loading.svg";
+  public static icon_url_close = Constant.icon_host + "close.png";
+  public static icon_url_logo = Constant.icon_host + "logo.png";
 
   //Const
   public static const_refresh_select = "refresh";
   public static const_time_out_set_interval = 5;
   public static const_time_out_interval = 30*60;
+  public static const_timeout_default = 100;
 }
