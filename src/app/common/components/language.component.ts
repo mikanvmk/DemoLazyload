@@ -52,6 +52,13 @@ export class LanguageUtilComponent implements AfterViewInit {
   }
 
   init() {
+    let params = new URLSearchParams(location.href.substring(location.href.indexOf('?') + 1, location.href.length));
+    let lang = params.get('language');
+    if (lang) {
+      this.dataService.currentLang = lang;
+      localStorage.setItem(Constant.key_local_language, lang);
+      this.translate.use(lang);
+    }
     if (this.dataService.currentLang) {
       setTimeout(() => {
         $('#language').selectpicker('val', this.dataService.currentLang);

@@ -1,6 +1,27 @@
 {
-  "error" : {
+  "success" : {
+    "message" : {
 
+    },
+    "register" : "Please check email and follow instructions."
+  },
+  "error" : {
+    "server" : "Server error !!!",
+    "routerLink" : "Link not exists",
+    "validPhone" : "Please enter more than or equal to 6"
+  },
+  "register" : {
+    "investor" : "Investor Account",
+    "message" :{
+      "youIsPortfolio" : "Are you an portfolio manager ? ",
+      "hadBeenAccount" : "Already have a account ? "
+    },
+    "label" : {
+      "email" : "Email",
+      "password" : "Password",
+      "confirmPass" : "Confirm Password",
+      "termsConditions": "I agree to the <a href=\"#/term-condition\">Terms & Conditions </a> and <a href=\"#/privacy-policy\"> Privacy Policy </a> of Finanma"
+    }
   },
   "login" : {
     "title" : "Login",
@@ -20,11 +41,37 @@
 
     }
   },
+  "resetPass" : {
+    "title" : "Reset password",
+    "label" : {
+      "newPass" : "Create new password",
+      "cfNewPass" : "Confirm new password"
+    }
+  },
+  "firstLogin" : {
+    "title" : "First Login",
+    "label" : {
+      "name" : "Full name",
+      "country" : "Country",
+      "phone" : "Phone"
+    },
+    "message" : {
+      "inforName" : "Please enter official name",
+      "inforName1" : "Name on ID or Passport for individuals.",
+      "inforName2" : "Name of business registration for organization."
+    },
+    "button" : {
+      "save" : "Save & Next"
+    }
+  },
   "common" : {
     "button" : {
       "send" : "Send",
       "login" : "Login",
-      "register" : "Sign up"
+      "register" : "Sign up",
+      "ok" : "OK",
+      "submit" : "Submit",
+      "cancel" : "Cancel"
     }
   }
 }

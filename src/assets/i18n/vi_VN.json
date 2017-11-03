@@ -2,6 +2,19 @@
   "error" : {
 
   },
+  "register" : {
+    "investor" : "Investor Account",
+    "message" :{
+      "youIsPortfolio" : "Are you an portfolio manager ? ",
+      "hadBeenAccount" : "Already have a account ? "
+    },
+    "label" : {
+      "email" : "Email",
+      "password" : "Password",
+      "confirmPass" : "Confirm Password",
+      "termsConditions": "I agree to the <a href=\"#/term-condition\">Terms & Conditions </a> and <a href=\"#/privacy-policy\"> Privacy Policy </a> of Finanma"
+    }
+  },
   "login" : {
     "title" : "Login",
     "label" : {

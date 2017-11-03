@@ -4,8 +4,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {Constant} from "../../common/constant";
 import {InvestorProfile} from "./screen/account/profile";
 import {InvestorComponent} from "./investor.component";
-import {FirstLogin} from "./screen/first-login/first-login";
-
+import {Market} from "./screen/marketWatch/market";
+import {TransactionManagement} from "./screen/transaction-management/transaction-management";
+import {Report} from "./screen/report/report";
 
 const routes: Routes = [
   {path: '', redirectTo: Constant.path_profile, pathMatch: 'full'},
@@ -13,7 +14,10 @@ const routes: Routes = [
     path: '', component: InvestorComponent,
     children: [
       {path: Constant.path_profile, component: InvestorProfile},
-      {path: Constant.path_first_login, component: FirstLogin}
+      {path: Constant.path_market, component: Market},
+      {path: Constant.path_transaction_management, component: TransactionManagement},
+      {path: Constant.path_transaction_management, component: TransactionManagement},
+      {path: Constant.path_report, component: Report}
     ]
   }
 ];

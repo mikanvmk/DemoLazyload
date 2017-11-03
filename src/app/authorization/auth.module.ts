@@ -13,6 +13,8 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {RecaptchaFormsModule} from "ng-recaptcha/forms";
 import {ReCaptchaModule} from "angular2-recaptcha";
+import {FirstLogin} from "./first-login/first-login";
+import {TextMaskModule} from "angular2-text-mask";
 
 @NgModule({
   imports: [
@@ -29,14 +31,16 @@ import {ReCaptchaModule} from "angular2-recaptcha";
     CommonModule,
     FormsModule,
     ReCaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    TextMaskModule
   ],
   declarations: [
     AuthComponent,
     RegisterIssuer,
     RegisterInvestor,
     Login,
-    ForgotPassword
+    ForgotPassword,
+    FirstLogin
   ],
   exports:[
     CommonModule,

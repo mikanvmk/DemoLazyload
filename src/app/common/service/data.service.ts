@@ -4,6 +4,13 @@ import {HttpService} from "./http.service";
 
 @Injectable()
 export class DataService {
+  get listCountry(): Array<any> {
+    return this._listCountry;
+  }
+
+  set listCountry(value: Array<any>) {
+    this._listCountry = value;
+  }
   get listLanguage(): Array<any> {
     return this._listLanguage;
   }
@@ -33,6 +40,9 @@ export class DataService {
   private _currentLang: string = localStorage.getItem(Constant.key_local_language) ? localStorage.getItem(Constant.key_local_language) : Constant.default_language;
 
   private _listLanguage:Array<any> = null;
+
+  private _listCountry:Array<any> = null;
+
 
   getListLanguage(http:HttpService) {
     return new Promise<boolean>((resolve, reject) =>{

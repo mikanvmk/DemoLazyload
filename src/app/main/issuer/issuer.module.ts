@@ -11,6 +11,11 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {HttpModule} from "@angular/http";
 import {ModalModule} from "ngx-bootstrap";
+import {Portfolio} from "./screen/portfolio/portfolio";
+import {CreateProduct} from "./screen/create-product/create-product";
+import {TransactionManagement} from "./screen/transaction-management/transaction-management";
+import {MoneyTransaction} from "./screen/money-transaction/money-transaction";
+import {Report} from "./screen/report/report";
 
 @NgModule({
   imports: [
@@ -31,7 +36,12 @@ import {ModalModule} from "ngx-bootstrap";
   ],
   declarations: [
     IssuerComponent,
-    IssuerProfile
+    IssuerProfile,
+    Portfolio,
+    CreateProduct,
+    TransactionManagement,
+    MoneyTransaction,
+    Report
   ],
 })
 export class IssuerModule {}

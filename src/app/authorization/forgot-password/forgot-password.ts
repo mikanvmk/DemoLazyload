@@ -4,7 +4,6 @@ import {DataService} from "../../common/service/data.service";
 import {ReCaptchaService} from "angular2-recaptcha/lib/captcha.service";
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../auth.service";
-import {DialogService} from "../../common/service/dialog.service";
 
 /**
  * declare Jquery
@@ -28,8 +27,7 @@ export class ForgotPassword implements AfterViewInit {
   constructor(
     public dataService:DataService,
     private recaptChaService:ReCaptchaService,
-    private authService:AuthService,
-    private dialog:DialogService
+    private authService:AuthService
   ) {
 
   }
@@ -88,14 +86,9 @@ export class ForgotPassword implements AfterViewInit {
     this.isLoading = true;
     if (this.forgotForm.form.valid && this.recaptchaToken) {
       this.authService.forgotPassword(value)
-        .subscribe(res=>{
+        .then(res=>{
           this.sendMailDone = true;
           this.isLoading = false;
-        },error2 => {
-          this.isLoading = false;
-          if (error2.status) {
-            this.dialog.showError(error2.message)
-          }
         })
     }
   }

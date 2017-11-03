@@ -8,10 +8,12 @@ declare let $: any;
 @Injectable()
 export class DialogService {
   public dialogMessage:string;
+  public dialogTitle:string;
   public isUpdateNAV:boolean;
   public dialogConfirmation: () => void;
   public dialogRejection: () => void;
   public dialogClose: () => void;
+  public dialogSubmit: () => void;
 
   confirm(message: string,isUpdateNAV?:boolean) {
     this.dialogMessage = message;
@@ -34,12 +36,29 @@ export class DialogService {
     });
   };
 
-  showError(message: string){
+  showError(message: string,title?:string){
     this.dialogMessage = message;
+    this.dialogTitle = title;
     $('#errorModal').modal('toggle');
   }
 
-  showSuccess() {
-
+  showSuccess(message: string,title?:string) {
+    this.dialogMessage = message;
+    this.dialogTitle = title;
+    return new Promise<boolean>((resolve, reject) =>{
+      this.dialogSubmit = () => {
+        $('#successModal').modal('toggle');
+        this.dialogMessage = null;
+        this.dialogTitle = null;
+        resolve(true)
+      };
+      this.dialogClose = ()=>{
+        $('#successModal').modal('toggle');
+        this.dialogMessage = null;
+        this.dialogTitle = null;
+        resolve(false)
+      };
+      $('#successModal').modal('toggle');
+    })
   }
 }

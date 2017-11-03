@@ -14,13 +14,15 @@ import {PopupError} from "./common/components/popup-error";
 import {DialogService} from "./common/service/dialog.service";
 import {HttpService} from "./common/service/http.service";
 import {ModalModule} from "ngx-bootstrap";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {FileSaverModule} from "ngx-filesaver";
 import {Constant} from "./common/constant";
 import {AuthService} from "./authorization/auth.service";
 import {ReCaptchaService} from "angular2-recaptcha/lib/captcha.service";
+import {PopupSuccess} from "./common/components/popup-success";
+import {ActiveMailService} from "./active-mail/active-mail.service";
 
 // Create folder load file json language
 export function createTranslateLoader(http: HttpClient) {
@@ -32,7 +34,8 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     //common
     ConfirmDialog,
-    PopupError
+    PopupError,
+    PopupSuccess
   ],
   imports: [
     BrowserModule,
@@ -61,12 +64,16 @@ export function createTranslateLoader(http: HttpClient) {
     DialogService,
     HttpService,
     AuthService,
-    ReCaptchaService
+    ReCaptchaService,
+    ActiveMailService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private dialog:DialogService,
+              private translate:TranslateService
+  ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         let currentScreen = sessionStorage.getItem(Constant.key_local_current_screen);
@@ -79,6 +86,10 @@ export class AppModule {
       if (event instanceof NavigationEnd) {
         sessionStorage.setItem(Constant.key_local_current_screen, event.url)
       }
-    })
+    });
+    this.router.errorHandler = (error)=>{
+      this.dialog.showError(this.translate.instant('error.routerLink'));
+      this.router.navigate([Constant.url_home])
+    }
   }
 }

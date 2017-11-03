@@ -6,6 +6,7 @@ export class Constant {
   public static header_config_code = "Finanma";
   //URL
   public static url_host = "https://" + environment.urlBackEnd;
+  public static url_lib_phone = "https://s3-ap-southeast-1.amazonaws.com/finanma-static/assets/lib/js/intlTelInput/utils.js";
 
   //user code
   public static code_investor = "investor";
@@ -32,6 +33,17 @@ export class Constant {
   public static path_active_reset_pass = "resetPassword";
   public static path_register_investor = "signUp";
   public static path_register_issuer = "signUp/" + Constant.code_issuer;
+  //Path investor
+  public static path_market = "market";
+  public static path_transaction_management = "transaction";
+  public static path_asset_management = "asset";
+  public static path_report = "report";
+  //Path issuer
+  public static path_portfolio = "portfolio";
+  public static path_create_product = "create";
+  public static path_transaction_issuer = "transaction";
+  public static path_money_transaction = "money-transaction";
+  public static path_report_issuer = "report";
 
   //URL module
   public static url_module_dashboard = "./dashboard/dashboard.module#DashboardModule";
@@ -57,6 +69,17 @@ export class Constant {
   public static url_issuer_profile = "/" + Constant.path_account +  "/" + Constant.code_issuer  + "/" + Constant.path_profile;
   public static url_investor_profile =  "/" + Constant.path_account + "/" +  Constant.code_investor + "/" + Constant.path_profile;
 
+  //URL investor
+  public static url_investor_market = "/" + Constant.path_account + "/" + Constant.code_investor + "/" + Constant.path_market;
+  public static url_investor_transaction = "/" + Constant.path_account + "/" + Constant.code_investor + "/" + Constant.path_transaction_management;
+  public static url_investor_asset = "/" + Constant.path_account + "/" + Constant.code_investor + "/" + Constant.path_asset_management;
+  public static url_investor_report = "/" + Constant.path_account + "/" + Constant.code_investor + "/" + Constant.path_report;
+  //URL issuer
+  public static url_issuer_portfolio = "/" + Constant.path_account + "/" + Constant.code_issuer + "/" + Constant.path_portfolio;
+  public static url_issuer_crerate_product = "/" + Constant.path_account + "/" + Constant.code_issuer + "/" + Constant.path_create_product;
+  public static url_issuer_transaction = "/" + Constant.path_account + "/" + Constant.code_issuer + "/" + Constant.path_transaction_issuer;
+  public static url_issuer_money = "/" + Constant.path_account + "/" + Constant.code_issuer + "/" + Constant.path_money_transaction;
+  public static url_issuer_report = "/" + Constant.path_account + "/" + Constant.code_issuer + "/" + Constant.path_report_issuer;
   //Key localStorage
   public static key_local_token = "token";
   public static key_local_version = "version";

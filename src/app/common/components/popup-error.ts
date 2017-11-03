@@ -13,8 +13,7 @@ declare let $: any;
   template: `
     <!--Error modal-->
     <div class="modal fade" bsModal #errorModal="bs-modal" [config]="{backdrop: 'static'}"
-         id="errorModal"
-         tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+         data-backdrop="static" id="errorModal" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
@@ -60,11 +59,13 @@ export class PopupError {
   closeError() {
     $('#errorModal').modal('toggle');
     this.dialog.dialogMessage = null;
+    this.dialog.dialogTitle = null;
   }
 
   submitErrorModal() {
     $('#errorModal').modal('toggle');
     this.dialog.dialogMessage = null;
+    this.dialog.dialogTitle = null;
   }
 
 

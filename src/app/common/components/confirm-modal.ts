@@ -6,7 +6,7 @@ import {Constant} from "../constant";
   selector:'confirm-dialog-modal',
   template: `
     <div class="modal fade" bsModal #confirmModal="bs-modal" [config]="{backdrop: 'static'}" id="confirm-dialog"
-         role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+         role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
